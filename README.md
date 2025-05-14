@@ -1,16 +1,141 @@
-# cs520-project
 
-### Overview
-This project is a new doctor/patient portal, made for the ease of communication and scheduling appointments. It is composed of a frontend and a backend, each with their directories in this repository as patient_tracker_fe and patientTacker respectively. (We do notice a better naming convention could've been used.)
+# 🏥 Patient Tracker Web Application
 
-## how to run
-**Frontend**
-The frontend runs on react, as such make sure npm is installed (can be found here [npm install](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)). After that is on your system go into the frontend directory and run the following comment "npm install". This will install any dependencies our project has, allowing you to run it
+A secure, full-stack Doctor/Patient portal built using React and Django to streamline healthcare workflows such as appointment scheduling, medical record access, and real-time doctor-patient communication. It emphasizes role-based access, usability, and data security.
 
-**Backend**
-The backend runs on python, make sure that is installed. Once it is, go into the backend directory and run "pip install -r requirements.txt". This will install most of the dependencies for the backend. However you will not be able to run the backend as you need a *.env* file we are not providing. This file included the fields "DB_PASSWORD, DB_HOST, DB_NAME, DB_PORT, DB_USER, FIELD_ENCRYPTION_KEY". This allows for secure communication with the database.
+---
 
-You also have to use a postgres db and fill out all the info in the env and generate a new encryption key. Furthermore you need to use the command `python manage.py makemigrations` and then `python manage.py migrate` to create all the tables in the db.
+## 📌 Overview
 
-**Running both**
-Once all dependencies are installed, in the topmost directory, you can simply run "run.sh" to start both of them up at the same time. Or you can start them independently by going into the backend directory and running "python manage.py runserver" and then going to the frontend directory and running "npm start". To stop either, simply ctrl c 
+This application allows:
+- Patients to create profiles, manage medical histories, and book appointments
+- Doctors to view schedules, review patient histories, and document consultations
+- Real-time, role-based access for seamless coordination between healthcare providers and patients
+
+---
+
+## 🧠 How It Works
+
+1. Patients and doctors register and log in.
+2. Patients book appointments, attach notes, and update health details.
+3. Doctors view upcoming appointments and prepare using patient history.
+4. Doctors document appointments.
+5. Patients review past notes and manage their care.
+
+---
+
+## 💻 Application Features
+
+- Patient and doctor registration/login
+- Real-time appointment scheduling
+- Role-based dashboards
+- Medical history and medication tracking
+- Secure appointment documentation
+- Appointment reminders and history
+
+---
+
+## 🛠️ Tech Stack
+
+| Component     | Technology         |
+|---------------|--------------------|
+| Frontend      | React, JavaScript  |
+| Backend       | Django, Python     |
+| Database      | PostgreSQL         |
+| Security      | SHA256, HTTPS, JWT |
+| DevOps        | Git, GitHub, Shell |
+
+---
+
+## ⚙️ How to Run
+
+### 🧩 Backend Setup
+
+1. Ensure Python and PostgreSQL are installed.
+2. Navigate to the backend directory:
+
+```bash
+cd patientTacker/
+pip install -r requirements.txt
+```
+
+3. Create a `.env` file with the following fields:
+
+```env
+DB_NAME=
+DB_USER=
+DB_PASSWORD=
+DB_HOST=
+DB_PORT=
+FIELD_ENCRYPTION_KEY=
+```
+
+4. Apply migrations and start the server:
+
+```bash
+python manage.py makemigrations
+python manage.py migrate
+python manage.py runserver
+```
+
+---
+
+### 💻 Frontend Setup
+
+1. Navigate to the frontend directory:
+
+```bash
+cd patient_tracker_fe/
+npm install
+npm start
+```
+
+---
+
+### 🔄 Combined Startup
+
+To run both frontend and backend together:
+
+```bash
+./run.sh
+```
+
+---
+
+## ✅ Functional Highlights
+
+- View and manage upcoming appointments  
+- Update medical details and medications  
+- Secure authentication for both user roles  
+- Doctors access patient records before appointments  
+- Record post-visit notes for review and documentation  
+- Real-time filtering and schedule visibility for doctors  
+
+---
+
+## 🔐 Security Considerations
+
+- All data encrypted using SHA256  
+- HTTPS enforced throughout the application  
+- Role-Based Access Control (RBAC) ensures restricted visibility  
+- Authentication with JWT tokens  
+- Environment-based database credentials and encryption keys  
+
+---
+
+## 🛣️ Future Enhancements
+
+- Doctor-defined availability settings  
+- Real-time email/SMS appointment alerts  
+- Patient file uploads (e.g., PDFs, prescriptions)  
+- Cloud deployment with HIPAA compliance  
+- Responsive mobile interface  
+
+---
+
+## 🧪 Testing & Validation
+
+- **Backend**: Django unit tests (79% test coverage)  
+- **Frontend**: Jest-based testing for React components  
+- **Security**: Manual review of encryption and endpoint access  
+- **Usability**: Validated via user testing and feedback  
